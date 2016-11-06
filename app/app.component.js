@@ -20,7 +20,7 @@ var AppComponent = (function () {
         this.title = 'Tour of Heroes';
         this.hero = {
             id: 1,
-            name: 'Windstorm'
+            name: 'Tuor'
         };
     }
     AppComponent = __decorate([
