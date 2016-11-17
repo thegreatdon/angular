@@ -14,23 +14,32 @@ const STATIONS: Station[] = [
   template: `
     <h1>{{title}}</h1>
     <h2>NPRStations</h2>
-    <ul class="stations">
-      <li *ngFor="let station of stations"
-        [class.selected]="station === selectedStation"
-        (click)="onSelect(station)">
-        <span class="badge">{{station.id}}</span> {{station.name}}
-      </li>
-    </ul>
-    <div *ngIf="selectedStation">
-      <h2>{{selectedStation.name}} details!</h2>
-      <div><label>id: </label>{{selectedStation.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="selectedStation.name" placeholder="name"/>
+    <div id="pgecnt">
+      <div id="left">
+        <ul class="stations">
+          <li *ngFor="let station of stations"
+            [class.selected]="station === selectedStation"
+            (click)="onSelect(station)">
+            <span class="badge">{{station.id}}</span> {{station.name}}
+          </li>
+        </ul>
       </div>
-    </div>
+      <div id='right'>
+        <div *ngIf="selectedStation">
+          <h2>{{selectedStation.name}} details</h2>
+          <div><label>id: </label>{{selectedStation.id}}</div>
+          <div>
+            <label>name: </label>
+            <input [(ngModel)]="selectedStation.name" placeholder="name"/>
+          </div>
+        </div>
+      </div>
+  </div>
   `,
   styles: [`
+    #pgecnt{width:600px;}
+    #right {float:right;}
+    #left {float:left;}
     .selected {
       background-color: #CFD8DC !important;
       color: white;
@@ -84,7 +93,9 @@ export class AppComponent {
   title = 'NPRStations';
   stations = STATIONS;
   selectedStation: Station;
+
   onSelect(station: Station): void {
     this.selectedStation = station;
   }
+  
 }
