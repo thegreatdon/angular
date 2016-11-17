@@ -9,28 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
-var app_component_1 = require('./app.component');
-var station_detail_component_1 = require('./station-detail.component');
-var AppModule = (function () {
-    function AppModule() {
+var mock_stations_1 = require('./mock-stations');
+var StationService = (function () {
+    function StationService() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                forms_1.FormsModule
-            ],
-            declarations: [
-                app_component_1.AppComponent,
-                station_detail_component_1.StationDetailComponent
-            ],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
+    StationService.prototype.getStations = function () {
+        return Promise.resolve(mock_stations_1.STATIONS);
+    };
+    StationService.prototype.getStationsSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            return setTimeout(resolve, 2000);
+        }) // delay 2 seconds
+            .then(function () { return _this.getStations(); });
+    };
+    StationService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], StationService);
+    return StationService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.StationService = StationService;
+//# sourceMappingURL=station.service.js.map
