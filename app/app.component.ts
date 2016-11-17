@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-export class Hero {
+export class Station {
   id: number;
   name: string;
 }
@@ -7,18 +7,18 @@ export class Hero {
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
-    <div><label>id: </label>{{hero.id}}</div>
+    <h2>{{call_letter.name}} details!</h2>
+    <div><label>id: </label>{{call_letter.id}}</div>
     <div>
       <label>name: </label>
-      <input [(ngModel)]="hero.name" placeholder="name">
+      <input [(ngModel)]="call_letter.name" placeholder="name">
     </div>
     `
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
-  hero: Hero = {
+  title = 'NPR Stations';
+  call_letter : Station = {
     id: 1,
-    name: 'Tuor'
+    name: 'WAMU-FM'
   };
 }
