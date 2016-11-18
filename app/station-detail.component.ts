@@ -3,11 +3,10 @@ import { Component, Input } from '@angular/core';
   selector: 'my-station-detail',
    template: `
     <div *ngIf="station">
-      <h2>{{station.name}} details</h2>
-      <div><label>id: </label>{{station.id}}</div>
+      <h3>{{station.name}} details</h3>
+      <div><label>id: </label>{{station.id}}<input [(ngModel)]="station.id" placeholder="id"/></div>
       <div>
-        <label>name: </label>
-        <input [(ngModel)]="station.name" placeholder="name"/>
+        <label>name: </label><input [(ngModel)]="station.name" placeholder="name"/>
       </div>
     </div>
   `

@@ -19,7 +19,7 @@ var StationDetailComponent = (function () {
     StationDetailComponent = __decorate([
         core_1.Component({
             selector: 'my-station-detail',
-            template: "\n    <div *ngIf=\"station\">\n      <h2>{{station.name}} details</h2>\n      <div><label>id: </label>{{station.id}}</div>\n      <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"station.name\" placeholder=\"name\"/>\n      </div>\n    </div>\n  "
+            template: "\n    <div *ngIf=\"station\">\n      <h3>{{station.name}} details</h3>\n      <div><label>id: </label>{{station.id}}<input [(ngModel)]=\"station.id\" placeholder=\"id\"/></div>\n      <div>\n        <label>name: </label><input [(ngModel)]=\"station.name\" placeholder=\"name\"/>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], StationDetailComponent);
